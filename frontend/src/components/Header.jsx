@@ -64,12 +64,9 @@ const Header = ({ className }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
+          <div className="flex items-center gap-2">
             <Logo className="w-8 h-8" />
-            <span className="text-xl font-bold text-white group-hover:text-[#ff0400] transition-colors">
-              VibeBeats
-            </span>
-          </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1">
