@@ -1,0 +1,124 @@
+{
+  "timestamp": "2025-11-22T05:59:21.576824",
+  "total_tests": 18,
+  "passed_tests": 17,
+  "failed_tests": 1,
+  "success_rate": 94.44444444444444,
+  "test_details": [
+    {
+      "name": "Health Check",
+      "success": true,
+      "details": "",
+      "endpoint": ""
+    },
+    {
+      "name": "Register Producer",
+      "success": true,
+      "details": "",
+      "endpoint": "auth/register"
+    },
+    {
+      "name": "Register Artist",
+      "success": true,
+      "details": "",
+      "endpoint": "auth/register"
+    },
+    {
+      "name": "Login",
+      "success": true,
+      "details": "",
+      "endpoint": "auth/login"
+    },
+    {
+      "name": "Get Current User",
+      "success": true,
+      "details": "",
+      "endpoint": "auth/me"
+    },
+    {
+      "name": "Create Beat",
+      "success": true,
+      "details": "",
+      "endpoint": "beats"
+    },
+    {
+      "name": "Get Beats List",
+      "success": true,
+      "details": "",
+      "endpoint": "beats"
+    },
+    {
+      "name": "Get Beat Detail",
+      "success": true,
+      "details": "",
+      "endpoint": "beats/bb8fae9d-93d0-447c-9de1-957e648d190e"
+    },
+    {
+      "name": "Get Producer Beats",
+      "success": true,
+      "details": "",
+      "endpoint": "beats/producer/b4ef239f-02bd-4e8d-9448-533ef85d655f"
+    },
+    {
+      "name": "Purchase Beat",
+      "success": true,
+      "details": "",
+      "endpoint": "purchases"
+    },
+    {
+      "name": "Get My Purchases",
+      "success": true,
+      "details": "",
+      "endpoint": "purchases/my-purchases"
+    },
+    {
+      "name": "Get My Sales",
+      "success": true,
+      "details": "",
+      "endpoint": "purchases/my-sales"
+    },
+    {
+      "name": "Create Project",
+      "success": true,
+      "details": "",
+      "endpoint": "projects"
+    },
+    {
+      "name": "Get My Projects",
+      "success": true,
+      "details": "",
+      "endpoint": "projects/my-projects"
+    },
+    {
+      "name": "Get Dashboard Stats",
+      "success": true,
+      "details": "",
+      "endpoint": "stats/dashboard"
+    },
+    {
+      "name": "AI Analysis",
+      "success": true,
+      "details": "",
+      "endpoint": "ai/analyze"
+    },
+    {
+      "name": "AI Generate Cover",
+      "success": false,
+      "details": "Expected 200, got 500 - Cover generation failed: Failed to generate images: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key not valid. Please pass a valid API key.'}]}}",
+      "endpoint": "ai/generate-cover"
+    },
+    {
+      "name": "Delete Beat",
+      "success": true,
+      "details": "",
+      "endpoint": "beats/bb8fae9d-93d0-447c-9de1-957e648d190e"
+    }
+  ],
+  "failed_test_details": [
+    {
+      "test": "AI Generate Cover",
+      "endpoint": "ai/generate-cover",
+      "error": "Expected 200, got 500 - Cover generation failed: Failed to generate images: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key not valid. Please pass a valid API key.'}]}}"
+    }
+  ]
+}
