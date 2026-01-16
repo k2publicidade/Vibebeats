@@ -39,7 +39,9 @@ const UploadBeat = () => {
       return;
     }
 
-    if (!user?.id) {
+    // Use auth_id for storage (matches Supabase auth.uid() in policies)
+    const authId = user?.auth_id || user?.id;
+    if (!authId) {
       toast.error('Faça login para continuar');
       return;
     }
@@ -47,9 +49,9 @@ const UploadBeat = () => {
     setUploading(true);
 
     try {
-      // Generate unique file names
+      // Generate unique file names using auth_id (matches storage policy)
       const timestamp = Date.now();
-      const audioFileName = `${user.id}/${timestamp}_${audioFile.name}`;
+      const audioFileName = `${authId}/${timestamp}_${audioFile.name}`;
       let coverUrl = null;
 
       // Upload audio file to Supabase Storage
@@ -61,7 +63,7 @@ const UploadBeat = () => {
 
       // Upload cover if provided
       if (coverFile) {
-        const coverFileName = `${user.id}/${timestamp}_${coverFile.name}`;
+        const coverFileName = `${authId}/${timestamp}_${coverFile.name}`;
         const { data: coverData, error: coverError } = await uploadFile('covers', coverFileName, coverFile);
         if (!coverError) {
           coverUrl = getPublicUrl('covers', coverFileName);
@@ -69,6 +71,7 @@ const UploadBeat = () => {
       }
 
       // Create beat record in database
+      // producer_id uses auth_id to match RLS policy (auth.uid())
       const beatData = {
         title: formData.title,
         genre: formData.genre,
@@ -80,7 +83,7 @@ const UploadBeat = () => {
         tags: formData.tags.split(',').map(t => t.trim()).filter(t => t),
         audio_url: audioUrl,
         cover_url: coverUrl,
-        producer_id: user.id,
+        producer_id: authId,
         producer_name: user.name || user.email,
         is_active: true
       };
