@@ -7,7 +7,7 @@ const Logo = ({ className = "h-8", linkTo = "/" }) => {
       <img
         src="/vibebeats-logo.png"
         alt="VibeBeats Logo"
-        className={`${className} w-full h-auto`}
+        className={`${className} w-[20%] h-auto`}
       />
     </Link>
   );
